@@ -38,15 +38,21 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-            'urlManager' =>[
+        'urlManager' =>[
+          //  'class'=>'app\components\NewUrlRule',
             'enablePrettyUrl' => true,
             'showScriptName'  => false,
             'rules' => [
-                'new/<year:\d{4}>/items-list' => 'new/items-list',
+                
+                'news/<year:\d{4}>/items-list' => 'news/items-list',
                 [
-                'pattern' => 'new/<category:\w+>/items-list',
-                'route' => 'new/items-list',
-                'defaults' => ['category' => 'shopping']
+                'pattern' => 'news/<category:\w+>/items-list',
+                'route' => 'news/items-list',
+                'defaults' => ['category' => 'shopping'],
+                ],
+                [
+                'pattern'=>'<lang:\w+>/<controller>/<action>',
+                'route'=>'<controller>/<action>',
                 ]
             ],
         ],

@@ -4,9 +4,9 @@ use yii\helpers\Html;
 ?>
 <b>Filter data by year:</b><br />
 <ul>
-    <?php $currentYear = data('Y');?>
+    <?php $currentYear = date('Y');?>
     <?php for($year=$currentYear;$year>($currentYear-5);$year--) {?>
-    <li><?php echo Html::a( 'List items by year '.$year, Url::to(['news/items-list','year' => $year]) ) ?></li>
+    <li><?php echo Html::a( 'List items by year '.$year, Url::to(['new/items-list','year' => $year]) ) ?></li>
     <?php } ?>
 </ul>
 <br />
@@ -15,7 +15,7 @@ use yii\helpers\Html;
 <ul>
     <?php $categories = ['business', 'shopping']; ?>
     <?php foreach($categories as $category) { ?>
-    <li><?php echo Html::a( 'List items by category '.$category, Url::to(['news/itemslist','category' => $category]) ) ?></li>
+    <li><?php echo Html::a( 'List items by category '.$category, Url::to(['new/items-list','category' => $category]) ) ?></li>
     <?php } ?>
 </ul>
 <br /><br />

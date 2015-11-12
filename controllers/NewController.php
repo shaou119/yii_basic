@@ -36,6 +36,30 @@ class NewController extends Controller
         
     }
     
+    public function  actionIndex()
+    {
+        return $this->render('index');
+    }
+    
+    
+    public function actionInternationalIndex()
+    {
+        $lang = Yii::$app->request->get('lang','en');
+        Yii::$app->language = $lang;
+        return $this->render('internationalIndex');
+    }
+    
+    public function actionItemDetail()
+    {
+            $title = Yii::$app->request->get('title');
+            $data = $this->data();
+            $itemFound =  null;
+            foreach($data as $d)
+            {
+                if($d['title'] == $title) $itemFound = $d;
+            }
+            return $this->render('itemDetail', ['title' => $title, 'itemFound' => $itemFound]);
+    }
     
     
     
